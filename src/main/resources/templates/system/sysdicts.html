@@ -15,8 +15,8 @@
 		</div>
 		<div class="panelBar" style="border-bottom:1px #B8D0D6 solid">
 	    	<ul class="toolBar">
-				<li><a class="add" href="/editdicttype" target="dialog" mask="true"><span>添加字典类别</span></a></li>
-				<li><a class="edit" href="/editdicttype" onclick="$(this).attr('href','/editdicttype/1')" target="dialog" mask="true"><span>编辑字典类别</span></a></li>
+				<li><a class="add" href="/editdicttype.htm" target="dialog" mask="true"><span>添加字典类别</span></a></li>
+				<li><a class="edit" href="/editdicttype.htm" onclick="$(this).attr('href','/editdicttype.htm?dicttype=1')" target="dialog" mask="true"><span>编辑字典类别</span></a></li>
 				<li class="line">line</li>
 				<li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>
 			</ul>
@@ -25,7 +25,7 @@
 			<li><a href="javascript">系统字典类别</a>
 				<ul>
 					<%for(dicttype in dicttypelist){%>
-					<li><a href="/dictitems" target="ajax" rel="jbsxBox">${dicttype.dicttype}</a></li>
+					<li><a href="/dictitems.htm" target="ajax" rel="jbsxBox">${dicttype.dicttype}</a></li>
 					<%}%>
 				</ul>
 			</li>
