@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>H+ 后台主题UI框架 - 登录</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="css/style-metro.css" rel="stylesheet" type="text/css"/>
+
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+	<!-- BEGIN PAGE LEVEL STYLES -->
+
+	<link href="css/login.css" rel="stylesheet" type="text/css"/>
+
+	<!-- END PAGE LEVEL STYLES -->
+
+	<link rel="shortcut icon" href="img/favicon.ico" />
+</head>
+
+<body class="login">
+    <!-- BEGIN LOGO -->
+	<div class="logo">
+		<img src="img/logo-big.png" alt="" /> 
+	</div>
+	<!-- END LOGO -->
+
+	<!-- BEGIN LOGIN -->
+	<div class="content">
+		<!-- BEGIN LOGIN FORM -->
+		<form class="form-vertical login-form" action="index.html">
+			<h3 class="form-title">欢迎登陆系统</h3>
+			<div class="alert alert-error hide">
+				<button class="close" data-dismiss="alert"></button>
+				<span>Enter any username and password.</span>
+			</div>
+			<div class="control-group">
+				<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+				<label class="control-label visible-ie8 visible-ie9">登录名</label>
+				<div class="controls">
+					<div class="input-icon left">
+						<i class="icon-user"></i>
+						<input class="m-wrap placeholder-no-fix" type="text" placeholder="登录名" name="username"/>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label visible-ie8 visible-ie9">密码</label>
+				<div class="controls">
+					<div class="input-icon left">
+
+						<i class="icon-lock"></i>
+
+						<input class="m-wrap placeholder-no-fix" type="password" placeholder="密码" name="password"/>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="form-actions">
+
+				<label class="checkbox">
+
+				<input type="checkbox" name="remember" value="1"/> 记住我
+
+				</label>
+
+				<button type="submit" class="btn blue pull-right">
+
+				登 录 <i class="m-icon-swapright m-icon-white"></i>
+
+				</button>            
+
+			</div>
+
+		</form>
+
+		<!-- END LOGIN FORM -->   
+	</div>
+	<!-- END LOGIN -->
+
+	<!-- BEGIN COPYRIGHT -->
+
+	<div class="copyright">
+
+		2017 &copy; JackChen.
+
+	</div>
+
+	<!-- END COPYRIGHT -->
+</body>
+<script src="/plugins/jquery-1.10.1.min.js"></script>
+<script src="/plugins/Stretcher/jquery.backstretch.min.js"></script>
+<script>
+$(function(){
+	$.backstretch([
+        "img/bg/1.jpg",
+        "img/bg/2.jpg",
+        "img/bg/3.jpg",
+        "img/bg/4.jpg"
+        ], {
+          fade: 1000,
+          duration: 8000
+      });
+})
+</script>
+</html>
