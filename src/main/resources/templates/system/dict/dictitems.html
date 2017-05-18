@@ -1,5 +1,5 @@
 <div class="pageHeader" style="border:1px #B8D0D6 solid">
-	<form id="pagerForm" onsubmit="return divSearch(this, 'jbsxBox');" action="/dictitems.htm" method="post">
+	<form id="pagerForm" onsubmit="return divSearch(this, 'jbsxBox');" action="/dict/dictitems.htm" method="post">
 	<input type="hidden" name="pageNum" value="1" />
 	<input type="hidden" name="numPerPage" value="10" />
 	<input type="hidden" name="orderField" value="" />
@@ -10,7 +10,7 @@
 				<td>
 					检索条件：<input type="text" name="searchCondition" />
 				</td>
-				<td><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></td>
+				<td><div class="buttonActive"><div class="buttonContent"><button type="submit" style="width:40px;">检索 </button></div></div></td>
 			</tr>
 		</table>
 	</div>
@@ -21,8 +21,10 @@
 <div class="panelBar">
 		<ul class="toolBar">
 			<li><a class="add" href="demo/pagination/dialog2.html" target="dialog" mask="true"><span>添加系统字典项</span></a></li>
+			<li class="line">line</li>
+			<li><a class="edit" href="demo/pagination/dialog2.html?uid={sid_obj}" target="dialog" mask="true"><span>编辑</span></a></li>
+			<li class="line">line</li>
 			<li><a class="delete" href="demo/pagination/ajaxDone3.html?uid={sid_obj}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
-			<li><a class="edit" href="demo/pagination/dialog2.html?uid={sid_obj}" target="dialog" mask="true"><span>修改</span></a></li>
 			<li class="line">line</li>
 			<li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>
 		</ul>

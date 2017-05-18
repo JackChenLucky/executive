@@ -1,4 +1,4 @@
-package cn.jack.executive.model.bean;
+package cn.jack.executive.system.model.bean;
 
 import java.io.Serializable;
 

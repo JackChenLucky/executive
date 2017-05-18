@@ -1,6 +1,16 @@
-package cn.jack.executive.model;
+package cn.jack.executive.common.bean;
 
-public class PageBean {
+import java.io.Serializable;
+
+/**
+ * 分页基类封装
+ * @author JackChen
+ *
+ */
+public class PageBean implements Serializable{
+	
+	private static final long serialVersionUID = -2113525961847707803L;
+
 	private int pageNum;
 	
 	private int numPerPage;

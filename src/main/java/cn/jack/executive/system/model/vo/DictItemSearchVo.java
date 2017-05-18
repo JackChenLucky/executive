@@ -1,6 +1,6 @@
-package cn.jack.executive.model.vo;
+package cn.jack.executive.system.model.vo;
 
-import cn.jack.executive.model.PageBean;
+import cn.jack.executive.common.bean.PageBean;
 
 public class DictItemSearchVo extends PageBean {
 	
