@@ -1,7 +1,34 @@
-selectAll
+sample
+===
+* 注释
+
+	select #use("cols")# from Sys_DictType where #use("condition")#
+
+cols
 ===
 
-* 查询所有的字典类别
+	id,dicttype,note,status
 
-	select * from SysDictType
+updateSample
+===
+
+	`id`=#id#,`dicttype`=#dicttype#,`note`=#note#,`status`=#status#
+
+condition
+===
+
+	1 = 1  
+	@if(!isEmpty(dicttype)){
+	 and `dicttype`=#dicttype#
+	@}
+	@if(!isEmpty(note)){
+	 and `note`=#note#
+	@}
+	@if(!isEmpty(status)){
+	 and `status`=#status#
+	@}
 	
+selectAll
+===
+	
+	SELECT * FROM SYS_DICTTYPE ORDER BY ID

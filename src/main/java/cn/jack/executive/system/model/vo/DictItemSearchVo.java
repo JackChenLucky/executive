@@ -1,8 +1,8 @@
 package cn.jack.executive.system.model.vo;
 
-import cn.jack.executive.common.bean.PageBean;
+import cn.jack.executive.system.model.SysDicttype;
 
-public class DictItemSearchVo extends PageBean {
+public class DictItemSearchVo extends SysDicttype {
 	
 	private String searchCondition;
 
@@ -12,7 +12,7 @@ public class DictItemSearchVo extends PageBean {
 
 	public void setSearchCondition(String searchCondition) {
 		this.searchCondition = searchCondition;
-	} 
+	}
 	
 	
 }

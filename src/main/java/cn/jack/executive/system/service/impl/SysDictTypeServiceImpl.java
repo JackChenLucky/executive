@@ -1,25 +1,21 @@
 package cn.jack.executive.system.service.impl;
 import java.util.List;
 
-import org.beetl.sql.core.SQLManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cn.jack.executive.system.dao.SysDictTypeDao;
-import cn.jack.executive.system.model.bean.SysDictType;
-import cn.jack.executive.system.service.SysDictTypeService;
+import cn.jack.executive.system.dao.SysDicttypeDao;
+import cn.jack.executive.system.model.SysDicttype;
+import cn.jack.executive.system.service.SysDicttypeService;
 
 @Service
-public class SysDictTypeServiceImpl implements SysDictTypeService {
+public class SysDictTypeServiceImpl implements SysDicttypeService {
 
 	@Autowired
-	SysDictTypeDao sysDictTypeDao;
-	@Autowired
-    SQLManager sql;
-	
+	private SysDicttypeDao sysDicttypeDao;
 	@Override
-	public List<SysDictType> allSysDictType() {
-		return sysDictTypeDao.selectAll();
+	public List<SysDicttype> allSysDictType() {
+		return sysDicttypeDao.selectAll();
 	}
 
 }

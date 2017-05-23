@@ -2,8 +2,8 @@ package cn.jack.executive.system.service;
 
 import java.util.List;
 
-import cn.jack.executive.system.model.bean.SysDictType;
+import cn.jack.executive.system.model.SysDicttype;
 
-public interface SysDictTypeService {
-	public List<SysDictType> allSysDictType();
+public interface SysDicttypeService {
+	public List<SysDicttype> allSysDictType();
 }

@@ -1,22 +1,19 @@
 package cn.jack.executive.common.config;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.druid.support.http.WebStatFilter;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.sql.DataSource;
-import java.sql.SQLException;
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.support.http.StatViewServlet;
+import com.alibaba.druid.support.http.WebStatFilter;
 
-/**
- * Alibaba的数据库连接池
- * @author JackChen
- *
- */
 @Configuration
 public class DruidConfiguration {
     @Bean
@@ -39,6 +36,7 @@ public class DruidConfiguration {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("------------初始化数据源--------------");
         return druidDataSource;
     }
 
