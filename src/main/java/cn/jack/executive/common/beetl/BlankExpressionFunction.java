@@ -7,11 +7,16 @@ import org.beetl.core.Context;
 import org.beetl.core.Function;
 import org.beetl.core.misc.PrimitiveArrayUtil;
 
-public class BeetlFunc implements Function{
+/**
+ * beetl自定义函数
+ * 
+ * @author JackChen
+ *
+ */
+public class BlankExpressionFunction  implements Function{
 
-	public Boolean call(Object[] paras, Context ctx)
-	{
-
+	@Override
+	public Boolean call(Object[] paras, Context ctx) {
 		if (paras.length == 0)
 			return true;
 		Object result = paras[0];
@@ -58,7 +63,6 @@ public class BeetlFunc implements Function{
 		}
 
 		return true;
-
 	}
-	
+
 }

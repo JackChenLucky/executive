@@ -9,18 +9,34 @@ import java.sql.Timestamp;
 * gen by beetlsql 2017-05-23
 */
 public class SysUser   implements Serializable{
-	private Integer id ;
-	private String email ;
-	private String loginname ;
-	private String othername ;
-	private String password ;
-	private String qq ;
-	private String sex ;
-	private String status ;
-	private String telphone ;
-	private String username ;
-	private String webchat ;
-	private Date expiredate ;
+	//主键
+	private Integer id;
+	//所在科室ID
+	private String dept;
+	//电子邮件
+	private String email;
+	//登录名
+	private String loginname;
+	//别名
+	private String othername;
+	//密码
+	private String password;
+	//QQ号码
+	private String qq;
+	//性别
+	private String sex;
+	//状态
+	private String status;
+	//联系电话
+	private String telphone;
+	//姓名
+	private String username;
+	//微信号码
+	private String webchat;
+	//出生日期
+	private Date birthday;
+	//过期日期
+	private Date expiredate;
 	
 	public SysUser() {
 	}
@@ -28,88 +44,98 @@ public class SysUser   implements Serializable{
 	public Integer getId(){
 		return  id;
 	}
-	public void setId(Integer id ){
+	public void setId(Integer id){
 		this.id = id;
+	}
+	
+	public String getDept(){
+		return  dept;
+	}
+	public void setDept(String dept){
+		this.dept = dept;
 	}
 	
 	public String getEmail(){
 		return  email;
 	}
-	public void setEmail(String email ){
+	public void setEmail(String email){
 		this.email = email;
 	}
 	
 	public String getLoginname(){
 		return  loginname;
 	}
-	public void setLoginname(String loginname ){
+	public void setLoginname(String loginname){
 		this.loginname = loginname;
 	}
 	
 	public String getOthername(){
 		return  othername;
 	}
-	public void setOthername(String othername ){
+	public void setOthername(String othername){
 		this.othername = othername;
 	}
 	
 	public String getPassword(){
 		return  password;
 	}
-	public void setPassword(String password ){
+	public void setPassword(String password){
 		this.password = password;
 	}
 	
 	public String getQq(){
 		return  qq;
 	}
-	public void setQq(String qq ){
+	public void setQq(String qq){
 		this.qq = qq;
 	}
 	
 	public String getSex(){
 		return  sex;
 	}
-	public void setSex(String sex ){
+	public void setSex(String sex){
 		this.sex = sex;
 	}
 	
 	public String getStatus(){
 		return  status;
 	}
-	public void setStatus(String status ){
+	public void setStatus(String status){
 		this.status = status;
 	}
 	
 	public String getTelphone(){
 		return  telphone;
 	}
-	public void setTelphone(String telphone ){
+	public void setTelphone(String telphone){
 		this.telphone = telphone;
 	}
 	
 	public String getUsername(){
 		return  username;
 	}
-	public void setUsername(String username ){
+	public void setUsername(String username){
 		this.username = username;
 	}
 	
 	public String getWebchat(){
 		return  webchat;
 	}
-	public void setWebchat(String webchat ){
+	public void setWebchat(String webchat){
 		this.webchat = webchat;
+	}
+	
+	public Date getBirthday(){
+		return  birthday;
+	}
+	public void setBirthday(Date birthday){
+		this.birthday = birthday;
 	}
 	
 	public Date getExpiredate(){
 		return  expiredate;
 	}
-	public void setExpiredate(Date expiredate ){
+	public void setExpiredate(Date expiredate){
 		this.expiredate = expiredate;
 	}
-	
-	
-	
-
 }

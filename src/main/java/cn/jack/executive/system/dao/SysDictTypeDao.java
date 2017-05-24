@@ -8,7 +8,7 @@ import cn.jack.executive.system.model.SysDicttype;
 
 
 public interface SysDicttypeDao extends BaseMapper<SysDicttype> {
-
+   
 	List<SysDicttype> selectAll();
 	
 }

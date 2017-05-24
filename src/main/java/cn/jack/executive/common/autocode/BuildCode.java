@@ -21,7 +21,7 @@ public class BuildCode {
 	public static void main(String[] args) {
 		ConnectionSource source = ConnectionSourceHelper.getSimple(
 				"com.mysql.jdbc.Driver",
-				"jdbc:mysql://localhost:3306/test",
+				"jdbc:mysql://localhost:3306/test?useSSL=true",
 				"root",
 				"root");
 		DBStyle mysql = new MySqlStyle();
@@ -32,15 +32,16 @@ public class BuildCode {
 		// 最后，创建一个SQLManager,DebugInterceptor 不是必须的，但可以通过它查看sql执行情况
 		SQLManager sqlManager = new SQLManager(mysql,loader,source,nc,new Interceptor[]{new DebugInterceptor()});
 		
-		/*
+		
 		try {
-			sqlManager.genPojoCodeToConsole("sys_dicttype");
-			sqlManager.genSQLTemplateToConsole("sys_dicttype");
+			sqlManager.genPojoCodeToConsole("Sys_User");
+			sqlManager.genSQLTemplateToConsole("Sys_User");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
+		/*
 		// 或者直接生成java文件
 		GenConfig config = new GenConfig();
 		config.preferBigDecimal(true);
@@ -49,7 +50,7 @@ public class BuildCode {
 			sqlManager.genSQLFile("Sys_User");
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 		System.out.println("生成完毕");
 	}
 }
