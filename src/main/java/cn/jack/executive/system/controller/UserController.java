@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.beetl.sql.core.engine.PageQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,8 +46,14 @@ public class UserController extends BaseController{
 	@RequestMapping("/view.htm")
 	public ModelAndView view(UserSearchVo userSearchVo){
 		ModelAndView view = new ModelAndView("system/user/user_view.html");
-		List<SysUser> userList = sysUserService.findUserBy(userSearchVo);
-		view.addObject("userList", userList);
+		PageQuery<SysUser> query = sysUserService.findUserByPage(userSearchVo);
+		System.out.println(query.getTotalPage());
+		System.out.println(query.getTotalRow());
+		System.out.println(query.getPageNumber());
+		view.addObject("totPage",query.getTotalPage());
+		view.addObject("totRow",query.getTotalRow());
+		view.addObject("pageNumber",query.getPageNumber());
+		view.addObject("userList", query.getList());
 		view.addObject("SearchCondition",userSearchVo);
 		return view;
 	}

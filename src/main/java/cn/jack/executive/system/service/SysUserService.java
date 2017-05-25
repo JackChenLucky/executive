@@ -2,11 +2,14 @@ package cn.jack.executive.system.service;
 
 import java.util.List;
 
+import org.beetl.sql.core.engine.PageQuery;
+
 import cn.jack.executive.system.model.SysUser;
 import cn.jack.executive.system.model.vo.UserSearchVo;
 
 public interface SysUserService {
-	public List<SysUser> findUserBy(UserSearchVo userSearchVo);
+	
+	public PageQuery<SysUser> findUserByPage(UserSearchVo userSearchVo);
 
 	/**
 	 * 根据主间查找用户4

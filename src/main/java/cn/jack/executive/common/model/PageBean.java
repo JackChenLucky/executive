@@ -19,7 +19,6 @@ public class PageBean implements Serializable{
 	
 	private String orderDirection;
 	
-	private int currentPage;
 
 	public int getPageNum() {
 		return pageNum;
@@ -51,14 +50,6 @@ public class PageBean implements Serializable{
 
 	public void setOrderDirection(String orderDirection) {
 		this.orderDirection = orderDirection;
-	}
-
-	public int getCurrentPage() {
-		return currentPage;
-	}
-
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
 	}
 	
 }

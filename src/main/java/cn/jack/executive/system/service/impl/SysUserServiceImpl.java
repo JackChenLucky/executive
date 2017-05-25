@@ -2,6 +2,8 @@ package cn.jack.executive.system.service.impl;
 
 import java.util.List;
 
+import org.beetl.sql.core.SQLManager;
+import org.beetl.sql.core.engine.PageQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +23,19 @@ public class SysUserServiceImpl implements SysUserService {
 	@Autowired
 	private SysUserDao sysUserDao;
 	
+	@Autowired
+	private SQLManager sqlManager;
 	/**
 	 * 根据条件查询用户列表
 	 */
 	@Override
-	public List<SysUser> findUserBy(UserSearchVo userSearchVo) {
-		return sysUserDao.findUserBy(userSearchVo);
+	public PageQuery<SysUser> findUserByPage(UserSearchVo userSearchVo) {
+		PageQuery<SysUser> query = new PageQuery<SysUser>();
+		query.setPageNumber(userSearchVo.getPageNum());
+		query.setPageSize(userSearchVo.getNumPerPage());
+		query.setParas(userSearchVo);
+		sqlManager.pageQuery("SysUser.findUserBy", SysUser.class, query);
+		return query;
 	}
 
 	/**

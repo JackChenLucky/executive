@@ -12,8 +12,8 @@
 </script>
 <div class="pageHeader">
 	<form id="pagerForm" onsubmit="return navTabSearch(this);" action="/user/view.htm" method="post">
-	<input type="hidden" name="pageNum" value="1" />
-	<input type="hidden" name="numPerPage" value="10" />
+	<input type="hidden" name="pageNum" value=1 />
+	<input type="hidden" name="numPerPage" value=${SearchCondition.numPerPage!20} />
 	<input type="hidden" name="orderField" value="" />
 	<input type="hidden" name="orderDirection" value="" />
 	<div class="searchBar">
@@ -92,15 +92,17 @@
 		<div class="pages">
 			<span>显示</span>
 			<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
-				<option value="20">20</option>
-				<option value="50">50</option>
-				<option value="100">100</option>
-				<option value="200">200</option>
+				<option value="5"  <%isSelected("5",SearchCondition.numPerPage!);%>>5</option>
+				<option value="10" <%isSelected("10",SearchCondition.numPerPage!);%>>10</option>
+				<option value="20" <%isSelected("20",SearchCondition.numPerPage!);%>>20</option>
+				<option value="50" <%isSelected("50",SearchCondition.numPerPage!);%>>50</option>
+				<option value="100" <%isSelected("100",SearchCondition.numPerPage!);%>>100</option>
+				<option value="200" <%isSelected("200",SearchCondition.numPerPage!);%>>200</option>
 			</select>
-			<span>条，共${totalCount!}条</span>
+			<span>条，共${totRow!}条</span>
 		</div>
 
-		<div class="pagination" targetType="navTab" totalCount="200" numPerPage="20" pageNumShown="10" currentPage="1"></div>
+		<div class="pagination" targetType="navTab" totalCount="${totRow!}" numPerPage="${SearchCondition.numPerPage!}" pageNumShown="${totPage!}" currentPage="${SearchCondition.pageNum!}"></div>
 
 	</div>
 </div>

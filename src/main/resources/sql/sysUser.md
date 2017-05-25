@@ -55,11 +55,14 @@ condition
 findUserBy
 ===
 
-	SELECT * FROM SYS_USER WHERE 1=1
+	SELECT 
+	@pageTag(){
+		*
+	@} 
+	FROM SYS_USER WHERE 1=1
 	@if(!isBlank(status)){
 		and status=#status#
 	@} 
 	@if(!isBlank(username)){
 		and (username=#username# or loginname=#username#)
-	@} 
-	order by username
+	@}
