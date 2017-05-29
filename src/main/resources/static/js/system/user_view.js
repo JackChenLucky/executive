@@ -15,8 +15,10 @@ $(function(){
             { label: '状态', name: 'status', width: 150 },
             { label: '过期日期', name: 'expiredate', width: 150 }
         ],
+        shrinkToFit:true,
         rownumbers:true,
 		viewrecords: true,
+		rowList: [20, 30, 60],
         width: $('#navTab').width()-4,
         height: $('#navTab').height()-152,
         rowNum: 20,

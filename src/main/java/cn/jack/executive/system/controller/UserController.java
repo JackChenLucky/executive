@@ -60,14 +60,8 @@ public class UserController extends BaseController{
 	}
 	
 	@RequestMapping("/list")
-	public @ResponseBody JqResult userList(UserSearchVo userSearchVo){
-		JqResult jResult = new JqResult();
-		PageQuery<SysUser> query = sysUserService.findUserByPage(userSearchVo);
-		jResult.setPage(userSearchVo.getPage());
-		jResult.setRecords(query.getTotalRow());
-		jResult.setTotal(query.getTotalPage());
-		jResult.setRows(query.getList());
-		return jResult;
+	public @ResponseBody JqResult<SysUser> userList(UserSearchVo userSearchVo){
+		return  new JqResult<SysUser>(sysUserService.findUserByPage(userSearchVo));
 	}
 	
 	@RequestMapping("/edit.htm")

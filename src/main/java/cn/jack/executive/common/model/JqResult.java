@@ -2,12 +2,16 @@ package cn.jack.executive.common.model;
 
 import java.io.Serializable;
 
+import org.beetl.sql.core.engine.PageQuery;
+
+import cn.jack.executive.system.model.SysUser;
+
 /**
  * Jqgrid 需要返回的JSON数据格式
  * @author JackChen
  *
  */
-public class JqResult implements Serializable {
+public class JqResult<T> implements Serializable {
 	
 	/*当前页码*/
 	private long page;
@@ -17,7 +21,14 @@ public class JqResult implements Serializable {
 	private long records;
 	/*List对象集合*/
 	private Object rows;
-
+	
+	public JqResult(PageQuery<T> query){
+		this.setPage(query.getPageNumber());
+		this.setRecords(query.getTotalRow());
+		this.setTotal(query.getTotalPage());
+		this.setRows(query.getList());
+	}
+	
 	public long getPage() {
 		return page;
 	}

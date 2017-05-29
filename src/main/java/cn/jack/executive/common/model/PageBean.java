@@ -17,7 +17,7 @@ public class PageBean implements Serializable{
 	
 	private String sidx;
 	
-	private String sord;
+	private String sord = "asc";
 
 	public int getRows() {
 		return rows;
