@@ -154,7 +154,7 @@
 					}
 				});
 			}
-			$(window).unbind(DWZ.eventType.resizeGrid).bind("resizeGrid", _resizeGrid);
+			$(window).off(DWZ.eventType.resizeGrid).on(DWZ.eventType.resizeGrid,_resizeGrid);
 		});
 	};
 	

@@ -31,8 +31,8 @@ public class SysUserServiceImpl implements SysUserService {
 	@Override
 	public PageQuery<SysUser> findUserByPage(UserSearchVo userSearchVo) {
 		PageQuery<SysUser> query = new PageQuery<SysUser>();
-		query.setPageNumber(userSearchVo.getPageNum());
-		query.setPageSize(userSearchVo.getNumPerPage());
+		query.setPageNumber(userSearchVo.getPage());
+		query.setPageSize(userSearchVo.getRows());
 		query.setParas(userSearchVo);
 		sqlManager.pageQuery("SysUser.findUserBy", SysUser.class, query);
 		return query;
