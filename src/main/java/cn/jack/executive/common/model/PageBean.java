@@ -2,6 +2,8 @@ package cn.jack.executive.common.model;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * 分页基类封装
  * @author JackChen
@@ -53,5 +55,9 @@ public class PageBean implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	
+	public String getOrderStr(){
+		return StringUtils.isBlank(sidx)?"":sidx+" "+sord;
 	}
 }

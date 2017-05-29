@@ -13,6 +13,7 @@ import cn.jack.executive.system.model.SysUser;
  */
 public class JqResult<T> implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	/*当前页码*/
 	private long page;
 	/*总记录数*/
@@ -23,10 +24,10 @@ public class JqResult<T> implements Serializable {
 	private Object rows;
 	
 	public JqResult(PageQuery<T> query){
-		this.setPage(query.getPageNumber());
-		this.setRecords(query.getTotalRow());
-		this.setTotal(query.getTotalPage());
-		this.setRows(query.getList());
+		page = query.getPageNumber();
+		records = query.getTotalRow();
+		total = query.getTotalPage();
+		rows = query.getList();
 	}
 	
 	public long getPage() {
