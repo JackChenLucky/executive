@@ -17,7 +17,7 @@ public class RoleController extends BaseController{
 
 	@RequestMapping("/view.htm")
 	public ModelAndView view(){
-		ModelAndView view = new ModelAndView("system/role/roleview");
+		ModelAndView view = new ModelAndView("system/role/role_view.html");
 		return view;
 	}
 }

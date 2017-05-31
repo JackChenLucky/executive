@@ -1,41 +1,18 @@
-<script>
-	function deleteUser(data){
-		if(data.code==0){
-			alertMsg.correct('恭喜您，删除成功！');
-			$('#form1').submit();
-		}else if(data.code==1){
-			alertMsg.warn('删除成功！'+data.message);
-		}else{
-			alertMsg.info('删除失败!');
-		}
-	}
-</script>
+<script type="text/javascript" src="js/system/user_view.js"></script>
 <div class="pageHeader">
 	<form id="pagerForm" onsubmit="return navTabSearch(this);" action="/user/view.htm" method="post">
-	<input type="hidden" name="pageNum" value=1 />
-	<input type="hidden" name="numPerPage" value=${SearchCondition.numPerPage!20} />
-	<input type="hidden" name="orderField" value="" />
-	<input type="hidden" name="orderDirection" value="" />
 	<div class="searchBar">
 		<table class="searchContent">
 			<tr>
 				<td>
-					用户姓名：<input type="text" name="username" value="${SearchCondition.username!}"/>
+					用户姓名：<input type="text" name="username" value=""/>
 				</td>
 				<td>
 				   <label>用户状态：</label>
-					<select class="combox" name="status">
+					<select name="status" style="width:80px;">
 						<option value="">所有</option>
-						<option value="0"
-						  <%if(SearchCondition.status=="0"){%>
-								selected=selected
-						  <%}%>
-						>有效</option>
-						<option value="1"
-						   <%if(SearchCondition.status=="1"){%>
-								selected=selected
-						  <%}%>
-						>无效</option>
+						<option value="0">有效</option>
+						<option value="1">无效</option>
 					</select>
 				</td>
 				<td>
@@ -56,53 +33,7 @@
 			<li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab" title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>
 		</ul>
 	</div>
-	<table class="table" width="100%" layoutH="112">
-		<thead>
-			<tr>
-				<th width="80">序号</th>
-				<th width="80">登录名</th>
-				<th width="80">姓名</th>
-				<th width="100">别名</th>
-				<th width="80">联系电话</th>
-				<th width="120">Email</th>
-				<th width="80">QQ号码</th>
-				<th width="80">微信号</th>
-				<th width="80" align="center">状态</th>
-				<th width="120">过期日期</th>
-			</tr>
-		</thead>
-		<tbody>
-		<%for(user in userList){%>
-			<tr target="sid_user" rel="${user.id}">
-				<td>${userLP.index!}</td>
-				<td>${user.loginname}</td>
-				<td>${user.username}</td>
-				<td>${user.othername}</td>
-				<td>${user.telphone}</td>
-				<td>${user.email}</td>
-				<td>${user.qq}</td>
-				<td>${user.webchat}</td>
-				<td>${user.status}</td>
-				<td>${user.expiredate,dateFormat="yyyy-MM-dd"}</td>
-			</tr>
-		<%}%>
-		</tbody>
-	</table>
-	<div class="panelBar">
-		<div class="pages">
-			<span>显示</span>
-			<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
-				<option value="5"  <%isSelected("5",SearchCondition.numPerPage!);%>>5</option>
-				<option value="10" <%isSelected("10",SearchCondition.numPerPage!);%>>10</option>
-				<option value="20" <%isSelected("20",SearchCondition.numPerPage!);%>>20</option>
-				<option value="50" <%isSelected("50",SearchCondition.numPerPage!);%>>50</option>
-				<option value="100" <%isSelected("100",SearchCondition.numPerPage!);%>>100</option>
-				<option value="200" <%isSelected("200",SearchCondition.numPerPage!);%>>200</option>
-			</select>
-			<span>条，共${totRow!}条</span>
-		</div>
-
-		<div class="pagination" targetType="navTab" totalCount="${totRow!}" numPerPage="${SearchCondition.numPerPage!}" pageNumShown="${totPage!}" currentPage="${SearchCondition.pageNum!}"></div>
-
-	</div>
+	<!-- jqgrid和页面上普通的table进行区别 -->  
+	<table id="proxyListpageGrid" class="jqgrid"></table> 
+	<div id="proxyListpageGridPager"></div> 
 </div>

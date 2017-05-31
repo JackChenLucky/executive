@@ -2,6 +2,7 @@ package cn.jack.executive.system.service.impl;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.beetl.sql.core.SQLManager;
 import org.beetl.sql.core.engine.PageQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,12 @@ public class SysUserServiceImpl implements SysUserService {
 	@Override
 	public PageQuery<SysUser> findUserByPage(UserSearchVo userSearchVo) {
 		PageQuery<SysUser> query = new PageQuery<SysUser>();
-		query.setPageNumber(userSearchVo.getPageNum());
-		query.setPageSize(userSearchVo.getNumPerPage());
+		query.setPageNumber(userSearchVo.getPage());
+		query.setPageSize(userSearchVo.getRows());
 		query.setParas(userSearchVo);
+		if(StringUtils.isNotBlank(userSearchVo.getSidx())){			
+			query.setOrderBy(userSearchVo.getSidx()+" "+userSearchVo.getSord());
+		}
 		sqlManager.pageQuery("SysUser.findUserBy", SysUser.class, query);
 		return query;
 	}

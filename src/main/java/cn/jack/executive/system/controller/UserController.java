@@ -21,6 +21,7 @@ import cn.jack.executive.common.constants.DwzConstants;
 import cn.jack.executive.common.controller.BaseController;
 import cn.jack.executive.common.model.AjaxResult;
 import cn.jack.executive.common.model.DwzResult;
+import cn.jack.executive.common.model.JqResult;
 import cn.jack.executive.system.model.SysUser;
 import cn.jack.executive.system.model.vo.SysUserVo;
 import cn.jack.executive.system.model.vo.UserSearchVo;
@@ -56,6 +57,11 @@ public class UserController extends BaseController{
 		view.addObject("userList", query.getList());
 		view.addObject("SearchCondition",userSearchVo);
 		return view;
+	}
+	
+	@RequestMapping("/list")
+	public @ResponseBody JqResult<SysUser> userList(UserSearchVo userSearchVo){
+		return  new JqResult<SysUser>(sysUserService.findUserByPage(userSearchVo));
 	}
 	
 	@RequestMapping("/edit.htm")

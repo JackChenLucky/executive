@@ -2,6 +2,8 @@ package cn.jack.executive.common.model;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * 分页基类封装
  * @author JackChen
@@ -11,45 +13,51 @@ public class PageBean implements Serializable{
 	
 	private static final long serialVersionUID = -2113525961847707803L;
 
-	private int pageNum = 1;
+	private int rows = 20;
 	
-	private int numPerPage = 20;
+	private int page = 1;
 	
-	private String orderField;
+	private String sidx;
 	
-	private String orderDirection;
+	private String sord = "asc";
+
+	public int getRows() {
+		return rows;
+	}
+
+	public void setRows(int rows) {
+		this.rows = rows;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public String getSidx() {
+		return sidx;
+	}
+
+	public void setSidx(String sidx) {
+		this.sidx = sidx;
+	}
+
+	public String getSord() {
+		return sord;
+	}
+
+	public void setSord(String sord) {
+		this.sord = sord;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
-
-	public int getPageNum() {
-		return pageNum;
+	public String getOrderStr(){
+		return StringUtils.isBlank(sidx)?"":sidx+" "+sord;
 	}
-
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
-	}
-
-	public int getNumPerPage() {
-		return numPerPage;
-	}
-
-	public void setNumPerPage(int numPerPage) {
-		this.numPerPage = numPerPage;
-	}
-
-	public String getOrderField() {
-		return orderField;
-	}
-
-	public void setOrderField(String orderField) {
-		this.orderField = orderField;
-	}
-
-	public String getOrderDirection() {
-		return orderDirection;
-	}
-
-	public void setOrderDirection(String orderDirection) {
-		this.orderDirection = orderDirection;
-	}
-	
 }
