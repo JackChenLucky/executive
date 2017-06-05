@@ -2,13 +2,16 @@ package cn.jack.executive.system.model;
 import java.io.Serializable;
 import java.math.*;
 import java.util.Date;
+
+import org.beetl.sql.core.TailBean;
+
 import java.sql.Timestamp;
 
 /*
 * 
 * gen by beetlsql 2017-05-23
 */
-public class SysUser   implements Serializable{
+public class SysUser extends TailBean  implements Serializable{
 	//主键
 	private Integer id;
 	//所在科室ID

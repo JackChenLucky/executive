@@ -57,12 +57,12 @@ findUserBy
 
 	SELECT 
 	@pageTag(){
-		*
+		#use("cols")#,if(status='1','停用','启用') status_nm
 	@} 
 	FROM SYS_USER WHERE 1=1
 	@if(!isBlank(status)){
 		and status=#status#
 	@} 
 	@if(!isBlank(username)){
-		and (username=#username# or loginname=#username#)
+		and (username like #'%'+username+'%'# or loginname=#'%'+username+'%'#)
 	@}

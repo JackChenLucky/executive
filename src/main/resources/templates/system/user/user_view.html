@@ -53,10 +53,15 @@
 			<li><a class="delete" href="/user/delete/{sid_user}" target="ajaxTodo" title="确定要删除吗?" callback="deleteUser"><span>删除</span></a></li>
 			<li><a class="edit" href="/user/edit.htm?id={sid_user}" target="dialog" mask="true" title="编辑用户"  width="800" height="430"><span>修改</span></a></li>
 			<li class="line">line</li>
+			<li><a class="resetpwd" href="/user/resetpwd/{sid_user}" target="ajaxTodo" callback="dialogAjaxDone"  title="确定重置当前用户的密码为1吗?"><span>重置密码</span></a></li>
+			<li><a class="roles" href="/user/disable/{sid_user}" target="ajaxTodo" title="确定要停用当前用户吗?"><span>分配角色</span></a></li>
+			<li><a class="abandonuser" href="/user/disable/{sid_user}" target="ajaxTodo" callback="dialogAjaxDone"  title="确定要停用当前用户吗?"><span>停用</span></a></li>
+			<li><a class="enableuser" href="/user/enable/{sid_user}" target="ajaxTodo" callback="dialogAjaxDone"  title="确定要重新启用当前用户吗?"><span>启用</span></a></li>
+			<li class="line">line</li>
 			<li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab" title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>
 		</ul>
 	</div>
-	<table class="table" width="100%" layoutH="112">
+	<table class="table" width="100%" layoutH="115">
 		<thead>
 			<tr>
 				<th width="80">序号</th>
@@ -68,7 +73,6 @@
 				<th width="80">QQ号码</th>
 				<th width="80">微信号</th>
 				<th width="80" align="center">状态</th>
-				<th width="120">过期日期</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -82,8 +86,7 @@
 				<td>${user.email}</td>
 				<td>${user.qq}</td>
 				<td>${user.webchat}</td>
-				<td>${user.status}</td>
-				<td>${user.expiredate,dateFormat="yyyy-MM-dd"}</td>
+				<td>${user.statusNm}</td>
 			</tr>
 		<%}%>
 		</tbody>

@@ -47,9 +47,6 @@ public class UserController extends BaseController{
 	public ModelAndView view(UserSearchVo userSearchVo){
 		ModelAndView view = new ModelAndView("system/user/user_view.html");
 		PageQuery<SysUser> query = sysUserService.findUserByPage(userSearchVo);
-		System.out.println(query.getTotalPage());
-		System.out.println(query.getTotalRow());
-		System.out.println(query.getPageNumber());
 		view.addObject("totPage",query.getTotalPage());
 		view.addObject("totRow",query.getTotalRow());
 		view.addObject("pageNumber",query.getPageNumber());
@@ -95,6 +92,29 @@ public class UserController extends BaseController{
 	public @ResponseBody AjaxResult delete(@PathVariable String uid){
 		AjaxResult result = new AjaxResult();
 		sysUserService.deleteByKey(uid);
+		return result;
+	}
+	
+	/**
+	 * 修改用户状态为停用
+	 * @param uid
+	 * @return
+	 */
+	@RequestMapping("/disable/{uid}")
+	public @ResponseBody AjaxResult disable(@PathVariable String uid){
+		AjaxResult result = new AjaxResult();
+		SysUser user = sysUserService.findUserById(uid);
+		user.setStatus("1");//作废
+		sysUserService.saveUser(user);
+		return result;
+	}
+	
+	@RequestMapping("/enable/{uid}")
+	public @ResponseBody AjaxResult enable(@PathVariable String uid){
+		AjaxResult result = new AjaxResult();
+		SysUser user = sysUserService.findUserById(uid);
+		user.setStatus("0");//作废
+		sysUserService.saveUser(user);
 		return result;
 	}
 }

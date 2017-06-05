@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import cn.jack.executive.system.dao.SysUserDao;
 import cn.jack.executive.system.model.SysUser;
+import cn.jack.executive.system.model.vo.SysUserVo;
 import cn.jack.executive.system.model.vo.UserSearchVo;
 import cn.jack.executive.system.service.SysUserService;
 

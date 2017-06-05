@@ -1,5 +1,7 @@
 package cn.jack.executive.system.model.vo;
 
+import org.beetl.sql.core.annotatoin.Table;
+
 import cn.jack.executive.system.model.SysUser;
 
 /**
@@ -7,11 +9,16 @@ import cn.jack.executive.system.model.SysUser;
  * @author JackChen
  *
  */
+@Table(name="Sys_User")
 public class SysUserVo extends SysUser {
 	
 	private String expiredate_str;
 	
 	private String birthday_str;
+	
+	private String status_nm;
+	
+	private String dept_nm;
 
 	public String getExpiredate_str() {
 		return expiredate_str;
@@ -28,4 +35,22 @@ public class SysUserVo extends SysUser {
 	public void setBirthday_str(String birthday_str) {
 		this.birthday_str = birthday_str;
 	}
+
+	public String getStatus_nm() {
+		return status_nm;
+	}
+
+	public void setStatus_nm(String status_nm) {
+		this.status_nm = status_nm;
+	}
+
+	public String getDept_nm() {
+		return dept_nm;
+	}
+
+	public void setDept_nm(String dept_nm) {
+		this.dept_nm = dept_nm;
+	}
+	
+	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.beetl.sql.core.engine.PageQuery;
 
 import cn.jack.executive.system.model.SysUser;
+import cn.jack.executive.system.model.vo.SysUserVo;
 import cn.jack.executive.system.model.vo.UserSearchVo;
 
 public interface SysUserService {
