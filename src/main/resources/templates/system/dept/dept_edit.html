@@ -11,26 +11,17 @@
 				<input name="deptname" class="required" type="text" size="30" value="${dept.deptname!}" alt="请输入部门名称"/>
 			</p>
 			<p>
-				<label>拼音码：</label>
-				<input type="hidden" name="id" value="${dept.id!}"/>
-				<input name="spellcode" type="text" size="30" value="${dept.spellcode!}" readonly="readonly"/>
-			</p>
-			<p>
-				<label>五笔码：</label>
-				<input name="fivecode" type="text" size="30" value="${dept.fivecode!}" readonly="readonly"/>
-			</p>
-			<p>
 				<label>上级部门：</label>
-				<input name="district.id" type="hidden" size="30" value="${dept.pid!}"/>
-				<input name="district.districtName" type="text" size="30" value="${dept.pdeptname!}"/>
-				<a class="btnLook" href="/dept/lookup.htm" lookupGroup="district"  width="212" height="420">查找带回</a>
+				<input name="pid" lookupname="district.id" type="hidden" size="30" value="${dept.pid!}"/>
+				<input name="pdeptname" lookupname="district.deptName" class="required" type="text" size="30"  value="${pdeptname!}"/>
+				<a class="btnLook" href="/dept/lookup.htm?id=${dept.id!}" lookupGroup="district"  width="212" height="420">查找部门列表</a>
 			</p>
 			<p>
 				<label>状态：</label>
-				<select name="type" class="required combox">
+				<select name="status" class="required combox">
 					<option value="">请选择</option>
-					<option value="0"  selected="selected">启用</option>
-					<option value="1">停用</option>
+					<option value="0"  <%isSelected("0",dept.status!);%>>启用</option>
+					<option value="1" <%isSelected("1",dept.status!);%>>停用</option>
 				</select>
 			</p>
 			<p>

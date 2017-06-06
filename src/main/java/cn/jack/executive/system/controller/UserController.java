@@ -46,7 +46,7 @@ public class UserController extends BaseController{
 	@RequestMapping("/view.htm")
 	public ModelAndView view(UserSearchVo userSearchVo){
 		ModelAndView view = new ModelAndView("system/user/user_view.html");
-		PageQuery<SysUser> query = sysUserService.findUserByPage(userSearchVo);
+		PageQuery<SysUserVo> query = sysUserService.findUserByPage(userSearchVo);
 		view.addObject("totPage",query.getTotalPage());
 		view.addObject("totRow",query.getTotalRow());
 		view.addObject("pageNumber",query.getPageNumber());

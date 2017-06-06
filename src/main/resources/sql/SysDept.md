@@ -48,3 +48,13 @@ findDeptBy
 	@if(!isBlank(deptname)){
 		and (id like #'%'+deptname+'%'# or deptname=#'%'+deptname+'%'#)
 	@}
+	
+findDeptByPid
+===
+
+	SELECT #use("cols")#,if(status='1','停用','启用') status_nm
+	FROM SYS_DEPT WHERE 1=1
+	@if(!isBlank(id)){
+		and pid=#id#
+	@} 
+	Order by orderseq

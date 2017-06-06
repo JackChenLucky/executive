@@ -57,9 +57,11 @@ findUserBy
 
 	SELECT 
 	@pageTag(){
-		#use("cols")#,if(status='1','停用','启用') status_nm
+		#use("cols")#,
+		if(status='1','停用','启用') status_nm,
+		(SELECT DEPTNAME FROM SYS_DEPT WHERE DEPTCODE=SYS_USER.DEPT) dept_nm
 	@} 
-	FROM SYS_USER WHERE 1=1
+	FROM SYS_USER WHERE IFNULL(status,'0')!='-1'
 	@if(!isBlank(status)){
 		and status=#status#
 	@} 

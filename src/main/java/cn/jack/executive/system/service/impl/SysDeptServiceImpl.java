@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.jack.executive.system.dao.SysDeptDao;
+import cn.jack.executive.system.model.DeptTree;
 import cn.jack.executive.system.model.SysDept;
 import cn.jack.executive.system.model.vo.DeptSearchVo;
 import cn.jack.executive.system.service.SysDeptService;
@@ -49,9 +50,21 @@ public class SysDeptServiceImpl implements SysDeptService{
 	 * 获取树形结构部门列表
 	 */
 	@Override
-	public List<SysDept> getAllTreeDept() {
-		// TODO Auto-generated method stub
-		return null;
+	public DeptTree getAllTreeDept() {
+		DeptTree deptTree = new DeptTree();
+		deptTree.setId(0);
+		deptTree.setDeptname("组织机构");
+		//1、查询当前节点的下级节点
+		FillSubDepts(deptTree);
+		return deptTree;
+	}
+	
+	private void FillSubDepts(DeptTree deptTree){
+		List<DeptTree> subDeptList = sqlManager.select("SysDept.findDeptByPid", DeptTree.class, deptTree);
+		for(DeptTree dept:subDeptList){
+			FillSubDepts(dept);
+			deptTree.getSubDepts().add(dept);
+		}
 	}
 
 }

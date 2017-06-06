@@ -30,12 +30,12 @@ public class SysUserServiceImpl implements SysUserService {
 	 * 根据条件查询用户列表
 	 */
 	@Override
-	public PageQuery<SysUser> findUserByPage(UserSearchVo userSearchVo) {
-		PageQuery<SysUser> query = new PageQuery<SysUser>();
+	public PageQuery<SysUserVo> findUserByPage(UserSearchVo userSearchVo) {
+		PageQuery<SysUserVo> query = new PageQuery<SysUserVo>();
 		query.setPageNumber(userSearchVo.getPageNum());
 		query.setPageSize(userSearchVo.getNumPerPage());
 		query.setParas(userSearchVo);
-		sqlManager.pageQuery("SysUser.findUserBy", SysUser.class, query);
+		sqlManager.pageQuery("SysUser.findUserBy", SysUserVo.class, query);
 		return query;
 	}
 
@@ -52,8 +52,7 @@ public class SysUserServiceImpl implements SysUserService {
 	 */
 	@Override
 	public boolean deleteByKey(String id) {
-		SysUser user = new SysUser();
-		user.setId(Integer.parseInt(id));
+		SysUser user = findUserById(id);
 		user.setStatus("-1");
 		return sysUserDao.updateById(user)>0;
 	}

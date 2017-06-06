@@ -34,8 +34,8 @@ public class BuildCode {
 		
 		
 		try {
-			sqlManager.genPojoCodeToConsole("Sys_Dept");
-			sqlManager.genSQLTemplateToConsole("Sys_Dept");
+			sqlManager.genPojoCodeToConsole("Sys_Menu");
+			sqlManager.genSQLTemplateToConsole("Sys_Menu");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

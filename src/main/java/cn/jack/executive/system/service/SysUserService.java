@@ -10,7 +10,7 @@ import cn.jack.executive.system.model.vo.UserSearchVo;
 
 public interface SysUserService {
 	
-	public PageQuery<SysUser> findUserByPage(UserSearchVo userSearchVo);
+	public PageQuery<SysUserVo> findUserByPage(UserSearchVo userSearchVo);
 
 	/**
 	 * 根据主间查找用户4
