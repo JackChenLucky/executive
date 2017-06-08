@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.sql.DataSource;
 
+import org.beetl.core.resource.ClasspathResourceLoader;
 import org.beetl.core.resource.WebAppResourceLoader;
 import org.beetl.ext.spring.BeetlGroupUtilConfiguration;
 import org.beetl.ext.spring.BeetlSpringViewResolver;
@@ -24,6 +25,8 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternUtils;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
+import cn.jack.executive.ExecutiveApplication;
+
 @Configuration
 public class BeetlConfiguration {
 
@@ -34,13 +37,12 @@ public class BeetlConfiguration {
         BeetlGroupUtilConfiguration beetlGroupUtilConfiguration = new BeetlGroupUtilConfiguration();
         ResourcePatternResolver patternResolver = ResourcePatternUtils.getResourcePatternResolver(new DefaultResourceLoader());
       try {
-			String root =  patternResolver.getResource("classpath:templates").getFile().toString();
-			WebAppResourceLoader webAppResourceLoader = new WebAppResourceLoader(root);
-	        beetlGroupUtilConfiguration.setResourceLoader(webAppResourceLoader);
+			ClasspathResourceLoader cploader = new ClasspathResourceLoader(ExecutiveApplication.class.getClassLoader(),"templates/");
+	        beetlGroupUtilConfiguration.setResourceLoader(cploader);
 	 
 	        beetlGroupUtilConfiguration.setConfigFileResource(patternResolver.getResource("classpath:beetl.properties"));
 	        return beetlGroupUtilConfiguration;
-		} catch (IOException e) {
+		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
         

@@ -28,7 +28,7 @@ public class SysDeptServiceImpl implements SysDeptService{
 		query.setPageNumber(deptSearchVo.getPageNum());
 		query.setPageSize(deptSearchVo.getNumPerPage());
 		query.setParas(deptSearchVo);
-		sqlManager.pageQuery("SysDept.findDeptBy", SysDept.class, query);
+		sqlManager.pageQuery("sysDept.findDeptBy", SysDept.class, query);
 		return query;
 	}
 
@@ -60,7 +60,7 @@ public class SysDeptServiceImpl implements SysDeptService{
 	}
 	
 	private void FillSubDepts(DeptTree deptTree){
-		List<DeptTree> subDeptList = sqlManager.select("SysDept.findDeptByPid", DeptTree.class, deptTree);
+		List<DeptTree> subDeptList = sqlManager.select("sysDept.findDeptByPid", DeptTree.class, deptTree);
 		for(DeptTree dept:subDeptList){
 			FillSubDepts(dept);
 			deptTree.getSubDepts().add(dept);

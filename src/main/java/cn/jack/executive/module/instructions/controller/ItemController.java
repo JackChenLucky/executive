@@ -17,7 +17,7 @@ public class ItemController extends BaseController {
 	
 	@RequestMapping("/view.htm")
 	public ModelAndView view(){
-		ModelAndView view = new ModelAndView("/instructions/item/item_view.html");
+		ModelAndView view = new ModelAndView("instructions/item/item_view.html");
 		
 		return view;
 	}

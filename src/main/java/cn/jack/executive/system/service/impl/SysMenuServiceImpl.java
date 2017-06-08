@@ -30,7 +30,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 		query.setPageNumber(menuSearchVo.getPageNum());
 		query.setPageSize(menuSearchVo.getNumPerPage());
 		query.setParas(menuSearchVo);
-		sqlManager.pageQuery("SysMenu.findMenuBy", SysDept.class, query);
+		sqlManager.pageQuery("sysMenu.findMenuBy", SysDept.class, query);
 		return query;
 	}
 
@@ -45,7 +45,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 	
 	private void FillSubMenus(MenuTree menuTree){
-		List<MenuTree> subMenuList = sqlManager.select("SysMenu.findMenuByPid", MenuTree.class, menuTree);
+		List<MenuTree> subMenuList = sqlManager.select("sysMenu.findMenuByPid", MenuTree.class, menuTree);
 		for(MenuTree menu:subMenuList){
 			FillSubMenus(menu);
 			menuTree.getSubMenus().add(menu);
