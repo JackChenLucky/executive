@@ -21,4 +21,10 @@ public class ItemController extends BaseController {
 		
 		return view;
 	}
+	
+	@RequestMapping("/edit.htm")
+	public ModelAndView edit(){
+		ModelAndView view = new ModelAndView("instructions/item/item_edit.html");
+		return view;
+	}
 }

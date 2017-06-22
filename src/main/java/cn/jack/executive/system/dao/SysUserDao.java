@@ -9,5 +9,5 @@ import cn.jack.executive.system.model.vo.UserSearchVo;
 
 public interface SysUserDao extends BaseMapper<SysUser> {
 
-	List<SysUser> findUserBy(UserSearchVo userSearchVo);
+	List<SysUser> findUserByRole(UserSearchVo userSearchVo);
 }
