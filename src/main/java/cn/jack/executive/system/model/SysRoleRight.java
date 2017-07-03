@@ -3,9 +3,9 @@ package cn.jack.executive.system.model;
 import java.io.Serializable;
 
 public class SysRoleRight  implements Serializable{
-	
 	private Integer id ;
-	private Integer rightid ;
+	private Integer funcid ;
+	private Integer menuid ;
 	private Integer roleid ;
 	
 	public SysRoleRight() {
@@ -18,11 +18,18 @@ public class SysRoleRight  implements Serializable{
 		this.id = id;
 	}
 	
-	public Integer getRightid(){
-		return  rightid;
+	public Integer getFuncid(){
+		return  funcid;
 	}
-	public void setRightid(Integer rightid ){
-		this.rightid = rightid;
+	public void setFuncid(Integer funcid ){
+		this.funcid = funcid;
+	}
+	
+	public Integer getMenuid(){
+		return  menuid;
+	}
+	public void setMenuid(Integer menuid ){
+		this.menuid = menuid;
 	}
 	
 	public Integer getRoleid(){
@@ -31,5 +38,4 @@ public class SysRoleRight  implements Serializable{
 	public void setRoleid(Integer roleid ){
 		this.roleid = roleid;
 	}
-	
 }

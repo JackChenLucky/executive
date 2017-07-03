@@ -2,6 +2,8 @@ package cn.jack.executive.system.model;
 import java.io.Serializable;
 import java.math.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 import org.beetl.sql.core.TailBean;
 
@@ -29,7 +31,7 @@ public class SysUser extends TailBean  implements Serializable{
 	//性别
 	private String sex;
 	//状态
-	private String status;
+	private int status;
 	//联系电话
 	private String telphone;
 	//姓名
@@ -41,9 +43,19 @@ public class SysUser extends TailBean  implements Serializable{
 	//过期日期
 	private Date expiredate;
 	
+	private Set<SysRole> roles;
+	
 	public SysUser() {
 	}
 	
+	public Set<SysRole> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<SysRole> roles) {
+		this.roles = roles;
+	}
+
 	public Integer getId(){
 		return  id;
 	}
@@ -100,10 +112,10 @@ public class SysUser extends TailBean  implements Serializable{
 		this.sex = sex;
 	}
 	
-	public String getStatus(){
+	public int getStatus(){
 		return  status;
 	}
-	public void setStatus(String status){
+	public void setStatus(int status){
 		this.status = status;
 	}
 	

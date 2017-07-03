@@ -5,4 +5,11 @@ import org.slf4j.LoggerFactory;
 
 public class BaseController {
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	protected static String SUCCESS = "SUCCESS";
+	protected static String ERROR = "ERROR";
+	
+	protected static String REDIRECT = "redirect:";
+	protected static String FORWARD = "forward:";
+
 }

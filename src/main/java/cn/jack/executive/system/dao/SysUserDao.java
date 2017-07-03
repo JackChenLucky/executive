@@ -10,4 +10,6 @@ import cn.jack.executive.system.model.vo.UserSearchVo;
 public interface SysUserDao extends BaseMapper<SysUser> {
 
 	List<SysUser> findUserByRole(UserSearchVo userSearchVo);
+
+	SysUser findUserByLoginName(String loginname);
 }

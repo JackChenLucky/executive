@@ -104,7 +104,7 @@ public class UserController extends BaseController{
 	public @ResponseBody AjaxResult disable(@PathVariable String uid){
 		AjaxResult result = new AjaxResult();
 		SysUser user = sysUserService.findUserById(uid);
-		user.setStatus("1");//作废
+		user.setStatus(1);//作废
 		sysUserService.saveUser(user);
 		return result;
 	}
@@ -113,7 +113,7 @@ public class UserController extends BaseController{
 	public @ResponseBody AjaxResult enable(@PathVariable String uid){
 		AjaxResult result = new AjaxResult();
 		SysUser user = sysUserService.findUserById(uid);
-		user.setStatus("0");//作废
+		user.setStatus(0);//作废
 		sysUserService.saveUser(user);
 		return result;
 	}

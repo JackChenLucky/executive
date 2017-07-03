@@ -68,3 +68,10 @@ findUserBy
 	@if(!isBlank(username)){
 		and (username like #'%'+username+'%'# or loginname=#'%'+username+'%'#)
 	@}
+
+findUserByLoginName
+===
+
+	SELECT 
+	#use("cols")# 
+	FROM SYS_USER WHERE LOGIN_NAME=#loginname#

@@ -1,7 +1,5 @@
 package cn.jack.executive.system.service.impl;
 
-import java.util.List;
-
 import org.beetl.sql.core.SQLManager;
 import org.beetl.sql.core.engine.PageQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +51,7 @@ public class SysUserServiceImpl implements SysUserService {
 	@Override
 	public boolean deleteByKey(String id) {
 		SysUser user = findUserById(id);
-		user.setStatus("-1");
+		user.setStatus(3);
 		return sysUserDao.updateById(user)>0;
 	}
 
@@ -64,6 +62,11 @@ public class SysUserServiceImpl implements SysUserService {
 		}else{
 			sysUserDao.updateById(user);
 		}
+	}
+
+	@Override
+	public SysUser findUserByLoginName(String loginname) {
+		return sysUserDao.findUserByLoginName(loginname);
 	}
 
 }

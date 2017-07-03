@@ -32,4 +32,11 @@ public interface SysUserService {
 	 * @return
 	 */
 	public void saveUser(SysUser user);
+
+	/**
+	 * 根据登录名查询用户
+	 * @param username
+	 * @return
+	 */
+	public SysUser findUserByLoginName(String loginname);
 }
