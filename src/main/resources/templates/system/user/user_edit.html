@@ -29,7 +29,7 @@
 			<p>
 				<label>所在部门：</label>
 				<input name="dept" lookupname="district.deptCode" type="hidden" size="30" value="${user.dept!}"/>
-				<input name="deptName" lookupname="district.deptName" class="required" type="text" size="30"  value="${user.deptNm!}"/>
+				<input name="deptName" lookupname="district.deptName" class="required" type="text" size="30"  value="${deptname!}"/>
 				<a class="btnLook" href="/dept/lookup.htm?id=${dept.id!}" lookupGroup="district"  mask="true"  width="212" height="420">查找部门列表</a>
 			</p>
 			<p>

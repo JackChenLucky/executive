@@ -8,7 +8,7 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import cn.jack.executive.system.service.AuthRealm;
+import cn.jack.executive.modules.system.service.AuthRealm;
 
 @Configuration
 public class ShiroConfiguration {

@@ -9,6 +9,9 @@
 			alertMsg.info('删除失败!');
 		}
 	}
+	function sid_user_Clik(){
+		
+	}
 </script>
 <div class="pageHeader">
 	<form id="pagerForm" onsubmit="return navTabSearch(this);" action="/user/view.htm" method="post">
@@ -83,12 +86,12 @@
 				<td>${user.loginname}</td>
 				<td>${user.username}</td>
 				<td>${user.othername}</td>
-				<td>${user.deptNm}</td>
+				<td>${user.dept_nm}</td>
 				<td>${user.telphone}</td>
 				<td>${user.email}</td>
 				<td>${user.qq}</td>
 				<td>${user.webchat}</td>
-				<td>${user.statusNm}</td>
+				<td>${user.status_nm}</td>
 			</tr>
 		<%}%>
 		</tbody>

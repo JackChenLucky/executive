@@ -57,35 +57,35 @@ public class BeetlConfiguration {
         return beetlSpringViewResolver;
     }
 
-    @Bean(name = "beetlSqlScannerConfigurer")
-    public BeetlSqlScannerConfigurer getBeetlSqlScannerConfigurer() {
-    	BeetlSqlScannerConfigurer conf = new BeetlSqlScannerConfigurer();
-    	conf.setBasePackage("cn.jack.executive.system.dao");
-    	conf.setDaoSuffix("Dao");
-    	conf.setSqlManagerFactoryBeanName("sqlManagerFactoryBean");
-    	return conf;
-    }
-    
-    @Bean(name = "sqlManagerFactoryBean")
-    @Primary
-    public SqlManagerFactoryBean getSqlManagerFactoryBean(@Qualifier("datasource") DataSource datasource) {
-    	SqlManagerFactoryBean factory = new SqlManagerFactoryBean();
-    	
-    	BeetlSqlDataSource  source = new BeetlSqlDataSource();
-    	source.setMasterSource(datasource);;
-    	factory.setCs(source);
-    	factory.setDbStyle(new MySqlStyle());
-    	factory.setInterceptors(new Interceptor[]{new DebugInterceptor()});
-    	factory.setNc(new UnderlinedNameConversion());
-    	factory.setSqlLoader(new ClasspathLoader("/sql"));
-    	return factory;
-    }
-    
-    
-    @Bean(name="txManager")  
-    public DataSourceTransactionManager getDataSourceTransactionManager(@Qualifier("datasource") DataSource datasource) {  
-    	DataSourceTransactionManager dsm = new DataSourceTransactionManager();
-    	dsm.setDataSource(datasource);
-    	return dsm;
-    }  
+//    @Bean(name = "beetlSqlScannerConfigurer")
+//    public BeetlSqlScannerConfigurer getBeetlSqlScannerConfigurer() {
+//    	BeetlSqlScannerConfigurer conf = new BeetlSqlScannerConfigurer();
+//    	conf.setBasePackage("cn.jack.executive.system.dao");
+//    	conf.setDaoSuffix("Dao");
+//    	conf.setSqlManagerFactoryBeanName("sqlManagerFactoryBean");
+//    	return conf;
+//    }
+//    
+//    @Bean(name = "sqlManagerFactoryBean")
+//    @Primary
+//    public SqlManagerFactoryBean getSqlManagerFactoryBean(@Qualifier("datasource") DataSource datasource) {
+//    	SqlManagerFactoryBean factory = new SqlManagerFactoryBean();
+//    	
+//    	BeetlSqlDataSource  source = new BeetlSqlDataSource();
+//    	source.setMasterSource(datasource);;
+//    	factory.setCs(source);
+//    	factory.setDbStyle(new MySqlStyle());
+//    	factory.setInterceptors(new Interceptor[]{new DebugInterceptor()});
+//    	factory.setNc(new UnderlinedNameConversion());
+//    	factory.setSqlLoader(new ClasspathLoader("/sql"));
+//    	return factory;
+//    }
+//    
+//    
+//    @Bean(name="txManager")  
+//    public DataSourceTransactionManager getDataSourceTransactionManager(@Qualifier("datasource") DataSource datasource) {  
+//    	DataSourceTransactionManager dsm = new DataSourceTransactionManager();
+//    	dsm.setDataSource(datasource);
+//    	return dsm;
+//    }  
 }

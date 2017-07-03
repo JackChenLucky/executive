@@ -67,7 +67,7 @@
 							$grid.prepend('<input id="'+sTarget+'" type="hidden" />');
 						}
 						$("#"+sTarget, $grid).val($tr.attr("rel"));
-						doCallbackForTbl(eval(sTarget+"_Clik"),[sTarget,$tr.attr("rel")]);
+						//doCallbackForTbl(eval(sTarget+"_Clik"),[sTarget,$tr.attr("rel")]);
 					}
 				});
 			});

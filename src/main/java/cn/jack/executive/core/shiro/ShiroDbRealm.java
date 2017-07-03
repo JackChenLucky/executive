@@ -9,6 +9,7 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -19,7 +20,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 
 import cn.jack.executive.core.shiro.factory.IShiro;
 import cn.jack.executive.core.shiro.factory.ShiroFactroy;
-import cn.jack.executive.system.model.SysUser;
+import cn.jack.executive.modules.system.model.SysUser;
 
 public class ShiroDbRealm extends AuthorizingRealm {
 
@@ -32,6 +33,9 @@ public class ShiroDbRealm extends AuthorizingRealm {
         IShiro shiroFactory = ShiroFactroy.me();
         UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
         SysUser user = shiroFactory.user(token.getUsername());
+        if(user==null){
+        	throw new UnknownAccountException();
+        }
         ShiroUser shiroUser = shiroFactory.shiroUser(user);
         SimpleAuthenticationInfo info = shiroFactory.info(shiroUser, user, super.getName());
         return info;

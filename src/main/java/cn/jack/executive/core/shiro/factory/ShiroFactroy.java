@@ -15,9 +15,9 @@ import com.sun.tools.javac.util.Convert;
 import cn.jack.executive.common.constants.UserStatus;
 import cn.jack.executive.core.shiro.ShiroUser;
 import cn.jack.executive.core.util.SpringContextHolder;
-import cn.jack.executive.system.model.SysUser;
-import cn.jack.executive.system.service.SysMenuService;
-import cn.jack.executive.system.service.SysUserService;
+import cn.jack.executive.modules.system.model.SysUser;
+import cn.jack.executive.modules.system.service.ISysMenuService;
+import cn.jack.executive.modules.system.service.ISysUserService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +28,10 @@ import java.util.List;
 public class ShiroFactroy implements IShiro {
 
     @Autowired
-    private SysUserService sysUserService;
+    private ISysUserService sysUserService;
 
     @Autowired
-    private SysMenuService sysMenuService;
+    private ISysMenuService sysMenuService;
 
     public static IShiro me() {
         return SpringContextHolder.getBean(IShiro.class);
@@ -94,6 +94,8 @@ public class ShiroFactroy implements IShiro {
         // 密码加盐处理
         String source = "jackchen";
         ByteSource credentialsSalt = new Md5Hash(source);
+        
+        
         return new SimpleAuthenticationInfo(shiroUser, credentials, credentialsSalt, realmName);
     }
 

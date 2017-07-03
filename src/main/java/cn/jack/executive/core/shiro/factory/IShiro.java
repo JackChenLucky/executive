@@ -3,7 +3,7 @@ package cn.jack.executive.core.shiro.factory;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 
 import cn.jack.executive.core.shiro.ShiroUser;
-import cn.jack.executive.system.model.SysUser;
+import cn.jack.executive.modules.system.model.SysUser;
 
 import java.util.List;
 
